@@ -1,0 +1,10 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  labels:
+    app.kubernetes.io/name: silly-demo-db
+  name: silly-demo-db
+spec:
+  instances: 1
+  storage:
+    size: 1Gi

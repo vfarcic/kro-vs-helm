@@ -1,0 +1,4 @@
+image:
+  repository: ghcr.io/vfarcic/silly-demo
+  tag: v1.5.39
+replicas: 2
