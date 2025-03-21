@@ -1,0 +1,11 @@
+apiVersion: kro.run/v1alpha1
+kind: Application
+metadata:
+  name: better-silly-demo
+spec:
+  name: better-silly-demo
+  image: ghcr.io/vfarcic/silly-demo
+  tag: "v1.5.39"
+  ingress:
+    enabled: true
+    host: silly-demo.devopstoolkit.live

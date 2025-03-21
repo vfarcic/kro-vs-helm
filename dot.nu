@@ -3,6 +3,7 @@
 source scripts/common.nu
 source scripts/kubernetes.nu
 source scripts/cnpg.nu
+source scripts/kro.nu
 
 def main [] {}
 
@@ -10,9 +11,16 @@ def "main setup" [] {
 
     rm --force .env
 
-    main create kubernetes kind
+    let provider = (
+        main get provider
+            --providers [aws azure google upcloud]
+    )
+
+    main create kubernetes $provider
 
     main apply cnpg
+
+    main apply kro
 
     kubectl create namespace a-team
 
@@ -20,8 +28,10 @@ def "main setup" [] {
     
 }
 
-def "main destroy" [] {
+def "main destroy" [
+    provider: string
+] {
 
-    main destroy kubernetes kind
+    main destroy kubernetes $provider
 
 }
