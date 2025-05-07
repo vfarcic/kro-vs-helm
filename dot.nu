@@ -13,7 +13,7 @@ def "main setup" [] {
 
     let provider = (
         main get provider
-            --providers [aws azure google upcloud]
+            --providers [aws azure google upcloud kind]
     )
 
     main create kubernetes $provider
